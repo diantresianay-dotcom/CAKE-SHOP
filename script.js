@@ -1,43 +1,74 @@
-// ========================================
-// ELEMENTS
-// ========================================
+// =======================================================
+//  ELEMENTS
+// =======================================================
 const searchBtn = document.querySelector(".search-icon");
 const cartBtn = document.querySelector(".cart-icon");
 const searchForm = document.querySelector(".search-form");
 const cartPanel = document.querySelector(".cart-items-container");
+const menuBtn = document.querySelector("#menu-btn");
+const navbar = document.querySelector(".navbar");
+menuBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    navbar.classList.toggle("active");
 
-// ========================================
-// TOGGLE SEARCH
-// ========================================
-searchBtn.addEventListener("click", (e) => {
+    searchForm?.classList.remove("active");
+    cartPanel?.classList.remove("active");
+});
+
+
+
+// =======================================================
+//  FUNCTION: CLOSE ALL PANELS
+// =======================================================
+function closeAll() {
+    searchForm?.classList.remove("active");
+    cartPanel?.classList.remove("active");
+    navbar?.classList.remove("active");
+}
+
+
+// =======================================================
+//  SEARCH BUTTON
+// =======================================================
+searchBtn?.addEventListener("click", (e) => {
     e.stopPropagation();
     searchForm.classList.toggle("active");
-    cartPanel.classList.remove("active");
+    cartPanel?.classList.remove("active");
 });
 
-// ========================================
-// TOGGLE CART
-// ========================================
-cartBtn.addEventListener("click", (e) => {
+
+// =======================================================
+//  CART BUTTON
+// =======================================================
+cartBtn?.addEventListener("click", (e) => {
     e.stopPropagation();
     cartPanel.classList.toggle("active");
-    searchForm.classList.remove("active");
+    searchForm?.classList.remove("active");
 });
 
-// ========================================
-// CLOSE BOTH WHEN CLICK OUTSIDE
-// ========================================
+
+
+// =======================================================
+//  CLOSE PANELS WHEN CLICK OUTSIDE
+// =======================================================
 document.addEventListener("click", () => {
-    searchForm.classList.remove("active");
-    cartPanel.classList.remove("active");
+    closeAll();
 });
 
-searchForm.addEventListener("click", (e) => e.stopPropagation());
-cartPanel.addEventListener("click", (e) => e.stopPropagation());
 
-// ========================================
-// ADD ITEM TO CART
-// ========================================
+// Prevent closing when clicking inside elements
+[
+    searchForm,
+    cartPanel,
+    navbar
+].forEach(el => {
+    el?.addEventListener("click", (e) => e.stopPropagation());
+});
+
+
+// =======================================================
+//  ADD TO CART FUNCTION
+// =======================================================
 function addToCart(image, name, price) {
     const item = document.createElement("div");
     item.classList.add("cart-item");
@@ -59,80 +90,90 @@ function addToCart(image, name, price) {
     });
 }
 
-// ========================================
-// ADD TO CART - CAKE
-// ========================================
+
+// =======================================================
+//  ADD TO CART: CAKE SECTION
+// =======================================================
 document.querySelectorAll(".add-cart").forEach(btn => {
     btn.addEventListener("click", (e) => {
         e.preventDefault();
 
         const card = btn.closest(".cake-card");
-        const image = card.querySelector("img").src;
-        const name = card.querySelector("h3").innerText;
-        const price = card.querySelector(".price").childNodes[0].nodeValue.trim();
+        if (!card) return;
+
+        const image = card.querySelector("img")?.src;
+        const name = card.querySelector("h3")?.innerText;
+        const price = card.querySelector(".price")?.childNodes[0]?.nodeValue?.trim();
 
         addToCart(image, name, price);
     });
 });
 
-// ========================================
-// ADD TO CART - CHEESECAKE
-// ========================================
-document.querySelectorAll(".cart-add").forEach(btn => {
-    btn.addEventListener("click", () => {
-
-        const card = btn.closest(".cheese-card");
-        const image = card.querySelector(".img img").src;
-        const name = card.querySelector(".content h3").innerText;
-        const price = card.querySelector(".price").childNodes[0].nodeValue.trim();
-
-        addToCart(image, name, price);
-    });
-});
-
-// ========================================
-// DELETE STATIC CART ITEM
-// ========================================
-document.querySelectorAll(".cart-item .fa-times").forEach(btn => {
-    btn.addEventListener("click", () => {
-        btn.closest(".cart-item").remove();
-    });
-});
 
 // =======================================================
-// ANIMASI SCROLL
+//  ADD TO CART – CHEESECAKES
+// =======================================================
+document.querySelectorAll(".cart-add").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const card = btn.closest(".cheese-card");
+        if (!card) return;
+
+        const image = card.querySelector(".img img")?.src;
+        const name = card.querySelector(".content h3")?.innerText;
+        const price = card.querySelector(".price")?.childNodes[0]?.nodeValue?.trim();
+
+        addToCart(image, name, price);
+    });
+});
+
+
+// =======================================================
+//  REMOVE STATIC CART ITEMS
+// =======================================================
+document.querySelectorAll(".cart-item .fa-times").forEach(btn => {
+    btn.addEventListener("click", () => {
+        btn.closest(".cart-item")?.remove();
+    });
+});
+
+
+// =======================================================
+//  SCROLL REVEAL ANIMATION
 // =======================================================
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("visible");
     });
 }, { threshold: 0.15 });
 
-document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+document.querySelectorAll(".scroll-reveal").forEach(el => observer.observe(el));
 
-// DATA DESKRIPSI KUE
+
+// =======================================================
+//  CAKE POPUP DATA
+// =======================================================
 const cakeDetails = {
     "Mango Cheese Cake": {
         img: "images/cheesecake/cheesecake2.jpg",
-        desc: "Cheesecake lembut dengan perpaduan krim keju dan manisnya mangga segar. Setiap gigitan memberi sensasi ringan, creamy, dan menyegarkan—pas untuk pencinta rasa tropis. Topping mangga asli memberikan aroma wangi dan rasa yang alami.",
+        desc: "Cheesecake lembut dengan perpaduan krim keju dan mangga segar.",
         price: "30K (normal 40K)"
     },
     "Baked Cheese Cake": {
         img: "images/cheesecake/cheesecake3.jpg",
-        desc: "Cheesecake panggang dengan tekstur padat namun tetap lembut. Aroma butter dan karamelisasinya terasa kuat, memberikan rasa klasik yang elegan. Topping berry manis-asam membuat rasanya semakin kaya dan memanjakan lidah.",
+        desc: "Cheesecake panggang dengan tekstur lembut dan aroma butter.",
         price: "55K (normal 60K)"
     },
     "Fruity Summer Cheese Cake": {
         img: "images/cheesecake/cheesecake4.jpg",
-        desc: "Cheesecake creamy dengan campuran buah segar seperti strawberry, blueberry, dan edible flowers. Rasanya seimbang antara manis dan asam, menghadirkan sensasi musim panas dalam satu potong. Warna-warni topping membuatnya sangat cantik untuk foto.",
+        desc: "Cheesecake creamy dipadukan dengan berbagai buah segar.",
         price: "55K (normal 60K)"
     }
 };
 
 
-// POPUP ELEMENT
+// =======================================================
+//  POPUP
+// =======================================================
 const popup = document.getElementById("cake-popup");
 const popupImg = document.getElementById("popup-img");
 const popupTitle = document.getElementById("popup-title");
@@ -140,12 +181,14 @@ const popupDesc = document.getElementById("popup-desc");
 const popupPrice = document.getElementById("popup-price");
 const closeBtn = document.querySelector(".close-btn");
 
-// EVENT KLIK ICON EYE
-document.querySelectorAll(".cheese-card .fa-eye").forEach((eye) => {
-    eye.addEventListener("click", function () {
 
-        let card = this.closest(".cheese-card");
-        let title = card.querySelector("h3").innerText;
+// OPEN POPUP
+document.querySelectorAll(".cheese-card .fa-eye").forEach(eye => {
+    eye.addEventListener("click", () => {
+        const card = eye.closest(".cheese-card");
+        const title = card.querySelector("h3").innerText;
+
+        if (!cakeDetails[title]) return;
 
         popupImg.src = cakeDetails[title].img;
         popupTitle.innerText = title;
@@ -156,10 +199,11 @@ document.querySelectorAll(".cheese-card .fa-eye").forEach((eye) => {
     });
 });
 
-// CLOSE POPUP
-closeBtn.onclick = () => popup.style.display = "none";
 
-window.onclick = (e) => {
+// CLOSE POPUP
+closeBtn?.addEventListener("click", () => popup.style.display = "none");
+
+window.addEventListener("click", (e) => {
     if (e.target === popup) popup.style.display = "none";
-};
+});
 
