@@ -218,3 +218,21 @@ function showToast(message) {
         toast.classList.remove("show");
     }, 2500);
 }
+
+// =======================================================
+//  LOVE / FAVORITE BUTTON
+// =======================================================
+document.querySelectorAll(".cheese-card .fa-heart").forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        const card = btn.closest(".cheese-card");
+        const name = card.querySelector("h3")?.innerText;
+
+        // animasi kecil pada icon
+        btn.style.transform = "scale(1.3)";
+        setTimeout(() => btn.style.transform = "scale(1)", 200);
+
+        // NOTIFIKASI
+        showToast(`${name} disukai`);
+    });
+});
