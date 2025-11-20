@@ -113,7 +113,9 @@ section{
 }
 
 .header .logo img{
-    height: 6.5rem;
+    height: 6rem;          /* ukuran default desktop */
+    width: auto;
+    object-fit: contain;
     border-radius: 50%;
 }
 
@@ -199,6 +201,9 @@ section{
 /* Untuk HP agar tampilan header & menu rapi */
 @media (max-width: 768px){
 
+    .header .logo img{
+        height: 4.5rem;    /* lebih kecil untuk HP */
+    }
     /* Header tetap proporsional */
     .header{
         height: 6rem !important;
@@ -288,6 +293,13 @@ section{
         min-height: 82vh !important;
         background-position: center top !important;
         background-size: cover !important;
+    }
+}
+
+/* Mode HP KECIL (extra small) */
+@media (max-width: 480px){
+    .header .logo img{
+        height: 4rem;
     }
 }
 
