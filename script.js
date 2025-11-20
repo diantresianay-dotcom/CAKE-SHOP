@@ -88,6 +88,8 @@ function addToCart(image, name, price) {
     item.querySelector(".remove-item").addEventListener("click", () => {
         item.remove();
     });
+    // Notifikasi sukses
+    showToast(`${name} ditambahkan ke keranjang`);
 }
 
 
@@ -207,3 +209,12 @@ window.addEventListener("click", (e) => {
     if (e.target === popup) popup.style.display = "none";
 });
 
+function showToast(message) {
+    const toast = document.getElementById("toast");
+    toast.innerText = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
+}
