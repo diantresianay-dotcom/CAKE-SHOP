@@ -746,4 +746,24 @@ footer .credits span{
 #menu-btn {
     position: relative;
     z-index: 99999;   /* Wajib */
-} 
+}
+
+.toast {
+    position: fixed;
+    top: 8rem;
+    right: -300px;       /* awalnya tersembunyi */
+    background: #00c9a5;
+    color: #fff;
+    padding: 1.2rem 2rem;
+    font-size: 1.5rem;
+    border-radius: .5rem;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    z-index: 999999;
+    opacity: 0;
+    transition: .4s ease;
+}
+
+.toast.show {
+    right: 1.5rem;
+    opacity: 1;
+}
