@@ -828,34 +828,25 @@ footer .credits span{
      .contact .contents {
         display: flex !important;
         flex-direction: column !important;
-        gap: 1.5rem !important;
+        flex-wrap: nowrap !important;   /* INI YANG WAJIB!! */
+        width: 100% !important;
         padding: 1rem !important;
+        gap: 1.5rem !important;
     }
 
-    /* MAP HP */
     .contact .contents iframe {
         width: 100% !important;
         height: 230px !important;
-        border-radius: 1rem;
     }
 
-    /* FORM HP */
     .contact .contents form {
         width: 100% !important;
         padding: 1.5rem !important;
     }
 
-    .contact .contents form h3 {
-        font-size: 2.2rem !important;
-        text-align: center;
-    }
-
     .contact .contents form .btn {
         width: 100% !important;
-        padding: 1.2rem !important;
-        font-size: 1.7rem !important;
     }
-    
 }
 
 /* Mode HP KECIL (extra small) */
