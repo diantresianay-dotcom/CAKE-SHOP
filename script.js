@@ -238,16 +238,18 @@ document.querySelectorAll(".cheese-card .fa-heart").forEach(btn => {
 });
 
 // =============================
-//  CONTACT BUTTON VALIDATION
+//  CONTACT BUTTON VALIDATION FIX
 // =============================
-const waBtn = document.getElementById("contact-now");
+const waBtn = document.getElementById("contact-btn");
 const contactForm = document.querySelector(".contact form");
 
 if (waBtn && contactForm) {
-    waBtn.addEventListener("click", () => {
-        const name = contactForm.querySelector("input[name='name']");
-        const email = contactForm.querySelector("input[name='email']");
-        const phone = contactForm.querySelector("input[name='phone']");
+    waBtn.addEventListener("click", function (e) {
+        e.preventDefault();  // cegah langsung ke WA sebelum validasi
+
+        const name  = document.getElementById("name");
+        const email = document.getElementById("email");
+        const phone = document.getElementById("phone");
 
         if (!name.value.trim()) {
             showToast("Nama harus diisi!");
@@ -265,17 +267,14 @@ if (waBtn && contactForm) {
             return;
         }
 
-        // Format kirim ke WA
-        let text = 
+        const text =
 `Halo kak, saya ingin bertanya.
 Nama: ${name.value}
 Email: ${email.value}
 Phone: ${phone.value}`;
 
-        let url = "https://wa.me/6285813405573?text=" + encodeURIComponent(text);
+        const url = "https://wa.me/6285813405573?text=" + encodeURIComponent(text);
 
         window.open(url, "_blank");
     });
 }
-
-
