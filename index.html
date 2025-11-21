@@ -212,7 +212,7 @@ Setiap potong menghadirkan rasa yang memanjakan dan membuat harimu lebih indah.<
             <img src="images/cheesecake/cheesecake1.jpg">
         </div>
         <div class="content">
-            <h3>Apa yang membuat kami berbeda?</h3>
+            <h3>Apa yang membuat kami berbeda?...</h3>
             <p>Kami menghadirkan cake yang dibuat dari bahan segar, racikan rasa yang seimbang, dan sentuhan kualitas di setiap detail.
                Setiap potongan dibuat untuk menghadirkan kebahagiaan sederhana bagi siapa pun yang menikmatinya.</p>
             <p>Kami percaya bahwa kue bukan sekadar hidangan, tapi pengalaman kecil yang menenangkan hati.</p>
@@ -280,38 +280,36 @@ Setiap potong menghadirkan rasa yang memanjakan dan membuat harimu lebih indah.<
 
     <div class="contents">
 
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.2252583238123!2d109.14721927356449!3d-6.863586467149108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fb7865c392335%3A0x51e0fa1e2d573b60!2sJl.%20Surabayan%20No.182%2C%20Panggung%2C%20Kec.%20Tegal%20Tim.%2C%20Kota%20Tegal%2C%20Jawa%20Tengah%2052122!5e0!3m2!1sid!2sid!4v1763004455034!5m2!1sid!2sid" 
-        style="border:0;" 
-        allowfullscreen 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.2252583238123!2d109.14721927356449!3d-6.863586467149108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fb7865c392335%3A0x51e0fa1e2d573b60!2sJl.%20Surabayan%20No.182!5e0!3m2!1sid!2sid!4v1763004455034!5m2!1sid!2sid"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
 
         <form action="">
             <h3 class="get-in-touch">HUBUNGI KAMI DISINI</h3>
 
             <div class="input-box">
                 <span class="fas fa-user"></span>
-                <input type="text" name="name" placeholder="name">
+                <input id="name" name="name" type="text" placeholder="name" required>
             </div>
 
             <div class="input-box">
                 <span class="fas fa-envelope"></span>
-                <input type="text" name="email" placeholder="email">
+                <input id="email" name="email" type="email" placeholder="email" required>
             </div>
 
             <div class="input-box">
                 <span class="fas fa-phone"></span>
-                <input type="text" name="phone" placeholder="phone">
+                <input id="phone" name="phone" type="text" placeholder="phone" required>
             </div>
 
-            <button type="button" id="contact-now" class="btn">contact now</button>
+            <a class="btn" id="contact-btn">contact now</a>
         </form>
 
     </div>
 </section>
-
-
-
 
 <footer class="footer">
     <div class="social-media">
@@ -355,4 +353,3 @@ Setiap potong menghadirkan rasa yang memanjakan dan membuat harimu lebih indah.<
 
 </body>
 </html>
-
