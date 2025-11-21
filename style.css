@@ -294,19 +294,7 @@ section{
         background-position: center top !important;
         background-size: cover !important;
     }
-    .contact .contents{
-        padding: 1rem;
-    }
-
-    .contact .contents iframe{
-        width: 100% !important;
-        height: 250px !important;
-    }
-
-    .contact .contents form .btn{
-        width: 100%;
-        font-size: 1.7rem;
-    }
+    
 }
 
 /* Mode HP KECIL (extra small) */
@@ -861,30 +849,56 @@ footer .credits span{
 }
 
 /* ============================== */
-/*  FIX CONTACT SECTION DESKTOP   */
+/*  DESKTOP CONTACT FIX           */
 /* ============================== */
 @media (min-width: 769px){
 
-    /* MAP NORMAL UNTUK DESKTOP */
     .contact .contents iframe{
         width: 55% !important;
         height: 380px !important;
         border-radius: 1rem;
     }
 
-    /* FORM NORMAL */
     .contact .contents form{
-        flex: 1 1 35rem;
         padding: 3rem;
         gap: 1.2rem;
     }
 
-    /* TOMBOL NORMAL */
     .contact .contents form .btn{
-        width: auto;
-        display: inline-block;
-        margin: 1rem 0 0;
-        padding: 1rem 2.5rem;
+        width: fit-content;
         font-size: 1.6rem;
+        padding: 1rem 2.5rem;
+        margin: 1rem auto 0;
+    }
+}
+
+/* ============================== */
+/*  MOBILE CONTACT FIX            */
+/* ============================== */
+@media (max-width: 768px){
+
+    .contact .contents{
+        padding: 1rem !important;
+        flex-direction: column !important;
+    }
+
+    .contact .contents iframe{
+        width: 100% !important;
+        height: 250px !important;
+    }
+
+    .contact .contents form{
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .contact .contents form h3{
+        font-size: 2.2rem;
+    }
+
+    .contact .contents form .btn{
+        width: 100% !important;
+        font-size: 1.7rem;
+        padding: 1.2rem;
     }
 }
