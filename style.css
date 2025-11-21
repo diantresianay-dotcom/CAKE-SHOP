@@ -299,11 +299,13 @@ section{
     }
 
     .contact .contents iframe{
-        height: 250px !important; /* lebih kecil agar pas */
+        width: 100% !important;
+        height: 250px !important;
     }
 
-    .contact .contents form{
-        padding: 2rem 1rem;
+    .contact .contents form .btn{
+        width: 100%;
+        font-size: 1.7rem;
     }
 }
 
@@ -856,4 +858,33 @@ footer .credits span{
 .toast.show {
     right: 1.5rem;
     opacity: 1;
+}
+
+/* ============================== */
+/*  FIX CONTACT SECTION DESKTOP   */
+/* ============================== */
+@media (min-width: 769px){
+
+    /* MAP NORMAL UNTUK DESKTOP */
+    .contact .contents iframe{
+        width: 55% !important;
+        height: 380px !important;
+        border-radius: 1rem;
+    }
+
+    /* FORM NORMAL */
+    .contact .contents form{
+        flex: 1 1 35rem;
+        padding: 3rem;
+        gap: 1.2rem;
+    }
+
+    /* TOMBOL NORMAL */
+    .contact .contents form .btn{
+        width: auto;
+        display: inline-block;
+        margin: 1rem 0 0;
+        padding: 1rem 2.5rem;
+        font-size: 1.6rem;
+    }
 }
