@@ -572,8 +572,6 @@ section{
 
 /* MAP SIZE */
 .contact .contents iframe{
-     width: 100% !important;
-    height: 350px !important;  /* lebih pas */
     border-radius: 1rem;
     border: 0;
 }
@@ -624,7 +622,6 @@ section{
 
 /* BUTTON */
 .contact .contents form .btn{
-    width: 100%;
     margin-top: 1rem;
     padding: 1.2rem;
     font-size: 1.8rem;
@@ -826,27 +823,30 @@ footer .credits span{
         background-size: cover !important;
     }
      .contact .contents {
-        display: flex !important;
-        flex-direction: column !important;
-        flex-wrap: nowrap !important;   /* INI YANG WAJIB!! */
-        width: 100% !important;
-        padding: 1rem !important;
-        gap: 1.5rem !important;
-    }
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    padding: 1rem !important;
+    gap: 1.5rem !important;
+  }
 
-    .contact .contents iframe {
-        width: 100% !important;
-        height: 230px !important;
-    }
+  .contact .contents iframe {
+    width: 100% !important;
+    height: 230px !important;
+    border-radius: 1rem !important;
+  }
 
-    .contact .contents form {
-        width: 100% !important;
-        padding: 1.5rem !important;
-    }
+  .contact .contents form {
+    width: 100% !important;
+    padding: 1.5rem !important;
+  }
 
-    .contact .contents form .btn {
-        width: 100% !important;
-    }
+  .contact .contents form .btn {
+    width: 100% !important;
+    font-size: 1.7rem !important;
+    padding: 1.2rem !important;
+  }
 }
 
 /* Mode HP KECIL (extra small) */
@@ -892,5 +892,4 @@ footer .credits span{
         margin: 1rem auto 0;
     }
 }
-
 
