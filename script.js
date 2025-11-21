@@ -236,3 +236,46 @@ document.querySelectorAll(".cheese-card .fa-heart").forEach(btn => {
         showToast(`${name} disukai`);
     });
 });
+
+// =============================
+//  CONTACT BUTTON VALIDATION
+// =============================
+const waBtn = document.getElementById("contact-now");
+const contactForm = document.querySelector(".contact form");
+
+if (waBtn && contactForm) {
+    waBtn.addEventListener("click", () => {
+        const name = contactForm.querySelector("input[name='name']");
+        const email = contactForm.querySelector("input[name='email']");
+        const phone = contactForm.querySelector("input[name='phone']");
+
+        if (!name.value.trim()) {
+            showToast("Nama harus diisi!");
+            name.focus();
+            return;
+        }
+        if (!email.value.trim()) {
+            showToast("Email harus diisi!");
+            email.focus();
+            return;
+        }
+        if (!phone.value.trim()) {
+            showToast("Nomor telepon harus diisi!");
+            phone.focus();
+            return;
+        }
+
+        // Format kirim ke WA
+        let text = 
+`Halo kak, saya ingin bertanya.
+Nama: ${name.value}
+Email: ${email.value}
+Phone: ${phone.value}`;
+
+        let url = "https://wa.me/6285813405573?text=" + encodeURIComponent(text);
+
+        window.open(url, "_blank");
+    });
+}
+
+
